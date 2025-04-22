@@ -1,0 +1,46 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 16 abr 2025, 19:42:04
+    Author     : Maria
+*/
+    .titulo {
+        font-size: 60px;
+    }
+
+    .contenidos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 0 2rem;
+    justify-items: center;
+  }
+  
+  .imagenes {
+    text-align: center;
+    max-width: 400px;
+  }
+
+  .imagenes img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.8rem;
+  }
+  
+  .textos {
+    font-size: 1rem;
+    color: green;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: green;
+    font-size: x-large;
+  }
+  
