@@ -19,7 +19,7 @@ public class ServicioListaCompra {
     }
 
     public List<String> generarListaCompraSaludable(Long idPaciente) {
-        // Simulación simple: podrías usar dietas, recetas o un análisis real
+       
         List<String> lista = new ArrayList<>();
         lista.add("Brócoli");
         lista.add("Pechuga de pollo");
