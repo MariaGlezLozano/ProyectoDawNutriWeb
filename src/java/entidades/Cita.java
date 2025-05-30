@@ -4,8 +4,11 @@
 package entidades;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 /**
@@ -25,8 +29,16 @@ public class Cita implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long idCita;
+    
+     @Column(nullable = false)
     private LocalDateTime fechaHora;
+     
+     @Transient
+private String fechaFormateada;
+
+@Transient
+private String horaFormateada;
 
     @ManyToOne
     @JoinColumn(name = "dietista_id", nullable = false)
@@ -48,13 +60,21 @@ public class Cita implements Serializable {
         this.paciente = paciente;
         this.estado = estado;
     }
-
-    public Long getId() {
-        return id;
+    
+    public LocalDate getFecha() {
+        return fechaHora.toLocalDate();
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public LocalTime getHora() {
+        return fechaHora.toLocalTime();
+    }
+
+    public Long getIdCita() {
+        return idCita;
+    }
+
+    public void setIdCita(Long idCita) {
+        this.idCita = idCita;
     }
 
     public LocalDateTime getFechaHora() {
@@ -89,4 +109,21 @@ public class Cita implements Serializable {
         this.estado = estado;
     }
 
+    public String getFechaFormateada() {
+        return fechaFormateada;
+    }
+
+    public void setFechaFormateada(String fechaFormateada) {
+        this.fechaFormateada = fechaFormateada;
+    }
+
+    public String getHoraFormateada() {
+        return horaFormateada;
+    }
+
+    public void setHoraFormateada(String horaFormateada) {
+        this.horaFormateada = horaFormateada;
+    }
+
+    
 }

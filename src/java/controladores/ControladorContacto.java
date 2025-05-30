@@ -67,19 +67,24 @@ public class ControladorContacto extends HttpServlet {
             throws ServletException, IOException {
 
         String nombre = request.getParameter("nombre");
-        String email = request.getParameter("email");
+        String emailUsuario = request.getParameter("email");
         String cuerpo = request.getParameter("mensaje");
 
-        if (nombre == null || nombre.trim().isEmpty() || email == null || email.trim().isEmpty() || cuerpo == null || cuerpo.trim().isEmpty()) {
+        if (nombre == null || nombre.trim().isEmpty() || emailUsuario == null || emailUsuario.trim().isEmpty() || cuerpo == null || cuerpo.trim().isEmpty()) {
             request.setAttribute("error", "Todos los campos son obligatorios.");
             request.getRequestDispatcher("Contacto.jsp").forward(request, response);
             return;
         } else {
             final String remitente = "gonzalez.lozano.maria@iescamas.es";
             final String clave = "kwhl qnyd pnmq swec";
-            String destinatario = email;
-            String asunto = "Se ha enviado un formulario de contacto";
-            String cuerpoMensaje = cuerpo;
+            String destinatario = "gonzalez.lozano.maria@iescamas.es";
+            String asunto = "Nuevo mensaje del formulario de contacto";
+
+            // Construir cuerpo del mensaje con la información del usuario
+            String cuerpoMensaje = "Has recibido un nuevo mensaje:\n\n"
+                    + "Nombre: " + nombre + "\n"
+                    + "Email: " + emailUsuario + "\n\n"
+                    + "Mensaje:\n" + cuerpo;
 
             Properties props = new Properties();
             props.put("mail.smtp.host", "smtp.gmail.com");
@@ -102,14 +107,16 @@ public class ControladorContacto extends HttpServlet {
                 mensaje.setText(cuerpoMensaje);
 
                 Transport.send(mensaje);
-                System.out.println("Correo de activación enviado a " + destinatario);
+                System.out.println("Correo de contacto recibido de " + emailUsuario);
+
                 request.setAttribute("mensajeExito", "Gracias por su mensaje, contactaremos con usted lo antes posible.");
             } catch (Exception e) {
-                request.setAttribute("mensajeExito", "Hubo un error al enviar el mensaje. Inténtelo más tarde.");
+                e.printStackTrace(); // Para ver el error en consola
+                request.setAttribute("mensajeError", "Hubo un error al enviar el mensaje. Inténtelo más tarde.");
             }
+
             request.getRequestDispatcher("/Contacto.jsp").forward(request, response);
         }
-
     }
 
     /**

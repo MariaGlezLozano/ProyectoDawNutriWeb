@@ -1,0 +1,114 @@
+/*
+* Estilos para menú Dietista
+*/
+/* 
+    Created on : 3 may 2025, 13:16:47
+    Author     : Maria
+*/
+
+body {
+    background-color: rgb(245, 239, 232);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.main-container {
+    display: flex;
+    min-height: calc(100vh - 80px);
+}
+
+/* Menú lateral */
+.sidebar {
+    width: 220px;
+    background-color: rgb(245, 239, 232);
+    padding-top: 20px;
+    border-right: 1px solid #dee2e6;
+}
+
+
+.sidebar a {
+    display: block;
+    padding: 15px 20px;
+    color: green;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #e2e6ea;
+}
+.logo img {
+    height: 80px;
+}
+
+.links {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+}
+
+.links a {
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: darkgreen;
+}
+
+.botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    max-width: 600px;
+}
+
+.btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.contenido {
+    padding: 2rem;
+    text-align: center;
+}
+
+.bienvenida {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .links {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .botones {
+        justify-content: flex-start;
+        width: 100%;
+    }
+}

@@ -1,0 +1,110 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 14 may 2025, 18:05:58
+    Author     : Maria
+*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: rgb(245, 239, 232);
+}
+
+.contenido {
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: green;
+    color: white;
+}
+
+td {
+    white-space: pre-line;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.no-data {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+}
+
+.botones {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #117a2b;
+}
+
+@media print {
+    .botones {
+        display: none;
+    }
+}
+
+.tabla-descripcion {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.tabla-descripcion th,
+.tabla-descripcion td {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    vertical-align: top;
+}
+
+.tabla-descripcion thead {
+    background-color: #f1f1f1;
+}
+
+.tabla-descripcion tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+

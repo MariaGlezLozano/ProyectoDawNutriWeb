@@ -107,7 +107,7 @@ public class ControladorEditarDietistas extends HttpServlet {
         String idStr = request.getParameter("id");
         String nombre = request.getParameter("nombre");
         String email = request.getParameter("email");
-        String nif = request.getParameter("nif");
+        //String nif = request.getParameter("nif");
         String activoStr = request.getParameter("activo");
         boolean activo = "true".equalsIgnoreCase(activoStr);
 
@@ -126,7 +126,8 @@ public class ControladorEditarDietistas extends HttpServlet {
                 dietista.setEmail(email);
                 dietista.setActivo(activo);
                 sd.edit(dietista);
-            }
+                error = "Dietista editado correctamente";
+            //}
 
             if (estabaInactivo && activo) {
                 final String remitente = "gonzalez.lozano.maria@iescamas.es";
@@ -157,10 +158,12 @@ public class ControladorEditarDietistas extends HttpServlet {
 
                     Transport.send(mensaje);
                     System.out.println("Correo de activación enviado a " + destinatario);
+                    error="correo de activación enviado.";
                 } catch (MessagingException e) {
                     e.printStackTrace();
                 }
             }
+}
 
             if (request.getParameter("eliminar") != null) {
                 try {

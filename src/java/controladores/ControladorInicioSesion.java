@@ -65,6 +65,7 @@ public class ControladorInicioSesion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String tipo = request.getParameter("tipo");
+        String activo = request.getParameter("activo");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String repetirPassword = request.getParameter("repetirPassword");
@@ -90,28 +91,35 @@ public class ControladorInicioSesion extends HttpServlet {
             request.setAttribute("error", error);
             getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
         }
-        
-         if (tipo.equals("empresa")) {
+
+        if (tipo.equals("empresa")) {
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("NutriWebBackendPU");
+            ServicioDietista sp = new ServicioDietista(emf);
+
             if (email == null || password == null || email.isEmpty() || password.isEmpty()) {
                 error = "El e-mail y la contraseña son obligatorios";
             } else {
-                EntityManagerFactory emf = Persistence.createEntityManagerFactory("NutriWebBackendPU");
-                ServicioDietista sp = new ServicioDietista(emf);
                 Dietista dietista = sp.validarDietista(email, password);
-                emf.close();
                 if (dietista != null) {
-                    HttpSession sesion = request.getSession();
-                    sesion.setAttribute("dietista", dietista);
-                    response.sendRedirect("dietista/ControladorInicio");
-                    return;
+                    if (!dietista.isActivo()) {
+                        error = "La cuenta no ha sido activada todavía.";
+                    } else {
+                        HttpSession sesion = request.getSession();
+                        sesion.setAttribute("dietista", dietista);
+                        sesion.setAttribute("idDietista", dietista.getidDietista());
+                        emf.close();
+                        response.sendRedirect("dietista/ControladorInicioDietista");
+                        return;
+                    }
                 } else {
-                    error = "e-mail o contraseña incorrectos";
+                    error = "E-mail o contraseña incorrectos";
                 }
             }
+            emf.close();
             request.setAttribute("error", error);
             getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
-        }        
-        
+        }
+       
     }
 
     /**

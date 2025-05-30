@@ -146,4 +146,16 @@ public class ServicioPaciente implements Serializable {
         }
         return null;
     }
+    
+    public List<Paciente> obtenerPacientesPorDietista(Long idDietista) {
+    EntityManager em = emf.createEntityManager();
+    try {
+        return em.createQuery("SELECT p FROM Paciente p WHERE p.dietista.idDietista = :dietistaId", Paciente.class)
+                .setParameter("dietistaId", idDietista)
+                .getResultList();
+    } finally {
+        em.close();
+    }
+}
+
 }

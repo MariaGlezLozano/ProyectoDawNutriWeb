@@ -1,0 +1,93 @@
+/*
+Estilos para nuevas consultas
+*/
+/* 
+    Created on : 15 may 2025, 7:29:20
+    Author     : Maria
+*/
+body {
+    background-color: rgb(245, 239, 232);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    color: #388e3c;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #388e3c;
+}
+
+a.btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #388e3c;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+

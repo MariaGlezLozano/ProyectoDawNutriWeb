@@ -1,0 +1,107 @@
+/*
+Estilo para perfil de paciente y dietista
+*/
+/* 
+    Created on : 3 may 2025, 12:03:14
+    Author     : Maria
+*/
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: transparent;
+  font-family: Arial, sans-serif;
+  color: green;
+}
+
+body, html {
+  font-family: Arial, sans-serif;
+  color: green;
+  background-image: url('../imagenes/perfil.png');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+}
+
+#perfilVista {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: transparent; 
+  font-family: Arial, sans-serif;
+  color: green;
+  text-align: left;
+}
+
+#perfilVista h3,
+#perfilEditar label {
+  margin-bottom: 0.5rem;
+  color: white;
+  
+}
+
+#perfilVista h3 {
+  font-weight: normal;
+}
+
+input.form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  transition: border-color 0.3s;
+  color: green; /* Input con texto verde */
+}
+
+input.form-control:focus {
+  border-color: #28a745;
+  outline: none;
+}
+
+button.btn-sm {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  font-family: Arial, sans-serif; /* Aplicar fuente */
+  color: white; /* Texto en verde */
+}
+
+button.btn-success:hover {
+  background-color: #218838;
+}
+
+button.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+@media (max-width: 600px) {
+  .container,
+  #perfilVista {
+    margin: 1rem;
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  #perfilVista h3 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  #perfilEditar label {
+    font-size: 0.9rem;
+  }
+
+  input.form-control {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+
+  button.btn-sm {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}

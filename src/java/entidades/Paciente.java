@@ -5,7 +5,9 @@ package entidades;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +15,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -36,9 +41,50 @@ public class Paciente {
     private String apellidos;
     @Column
     private LocalDate fechaNacimiento;
+    @Column(length = 60)
+    private String direccion;
+
+    @OneToMany(mappedBy = "paciente")
+    private List<Consulta> consultas = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "paciente_actividades",
+            joinColumns = @JoinColumn(name = "idPaciente"),
+            inverseJoinColumns = @JoinColumn(name = "idActividades")
+    )
+    private List<Actividades> actividades;
+
+    private Double altura;
+
+    private Double peso;
+
+    public Double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(Double altura) {
+        this.altura = altura;
+    }
+
+    public Double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(Double peso) {
+        this.peso = peso;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 
     @ManyToOne
-    @JoinColumn(name = "dietista_id")
+    @JoinColumn(name = "idDietista")
     private Dietista dietista;
 
     public Dietista getDietista() {
@@ -61,11 +107,11 @@ public class Paciente {
         return fechaNacimiento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
-    public Long getId() {
+    public Long getIdPaciente() {
         return idPaciente;
     }
 
-    public void setId(Long idPaciente) {
+    public void setIdPaciente(Long idPaciente) {
         this.idPaciente = idPaciente;
     }
 
@@ -121,6 +167,14 @@ public class Paciente {
         }
         final Paciente other = (Paciente) obj;
         return Objects.equals(this.idPaciente, other.idPaciente);
+    }
+
+    public List<Actividades> getActividades() {
+        return actividades;
+    }
+
+    public void setActividades(List<Actividades> actividades) {
+        this.actividades = actividades;
     }
 
     @Override

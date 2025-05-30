@@ -1,0 +1,61 @@
+/*
+Estilos de página de Registro
+*/
+/* 
+    Created on : 16 abr 2025, 20:59:12
+    Author     : Maria
+*/
+
+
+
+.registro {
+    
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+
+
+  .registro h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: green;
+  }
+ 
+  .registro form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .registro input {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .registro input:focus {
+    border-color: #4caf50;
+    outline: none;
+  }
+  
+  .registro button {
+    padding: 0.8rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .registro button:hover {
+    background-color: #45a049;
+  }
+ 
