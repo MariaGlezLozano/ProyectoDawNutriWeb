@@ -1,6 +1,5 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * Controlador nueva receta
  */
 package controladores.dietista;
 
@@ -103,8 +102,7 @@ public class ControladorNuevaReceta extends HttpServlet {
             String nombre = request.getParameter("nombre");
             String ingredientesText = request.getParameter("ingredientes"); // texto con lista ingredientes
             String instrucciones = request.getParameter("preparacion");
-            String notas = request.getParameter("notas"); // si quieres guardarlo en otro campo o ignorar
-            //String idDietistaStr = request.getParameter("idDietista"); // supongo que se lo pasas o tienes sesión
+            String notas = request.getParameter("notas");
 
             if (dietista == null) {
                 request.setAttribute("mensaje", "Dietista no encontrado.");
@@ -125,7 +123,6 @@ public class ControladorNuevaReceta extends HttpServlet {
             // dietista = em.merge(dietista);
 
             // Convertir texto ingredientes a lista
-            // Ejemplo simple: cada línea es un ingrediente
             List<String> ingredientes = Arrays.stream(ingredientesText.split("\\r?\\n"))
                     .map(String::trim)
                     .filter(s -> !s.isEmpty())

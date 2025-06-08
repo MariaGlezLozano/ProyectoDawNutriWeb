@@ -14,7 +14,7 @@
     }
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,7 +35,7 @@
     </head>
     <body>
         <jsp:include page="CabeceraDietista.jsp" />
-
+        <div class="hamburger" onclick="toggleSidebar()">☰</div>
         <div class="main-container">
             <div class="sidebar">
                 <a href="#" onclick="cargarContenido('../dietistas/perfilDietista.jsp')"><i class="fas fa-user"></i> Perfil</a>
@@ -52,12 +52,17 @@
                 <p>Selecciona una opción del menú para comenzar.</p>
             </div>
         </div>
-
         <jsp:include page="../Footer.jsp" />
 
         <script src="../js/menuDietista.js"></script>
         <script src="../js/perfil.js"></script>
         <script src="../js/agenda.js"></script>
+         <script>
+            function toggleSidebar() {
+                const sidebar = document.querySelector('.sidebar');
+                sidebar.classList.toggle('visible');
+            }
+        </script>
     </body>
 
 

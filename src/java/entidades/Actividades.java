@@ -1,11 +1,11 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Entidad Actividades
  */
 package entidades;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,34 +17,34 @@ import javax.persistence.ManyToMany;
  *
  * @author Maria
  */
-
 @Entity
 public class Actividades {
-      private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idActividades;
-    
-   @Column(length = 20, nullable = false)
+
+    @Column(length = 20, nullable = false)
     private String nombre;
-   
-   @Column()
+
+    @Column()
     private Double tiempo;
-    
-     @ManyToMany(mappedBy = "actividades")
-    private List<Paciente> pacientes = new ArrayList<>(); // Inicializamos la lista
+
+    @ManyToMany(mappedBy = "actividades")
+    private List<Paciente> pacientes = new ArrayList<>();
 
     public Actividades() {
-        this.pacientes = new ArrayList<>(); // Evita NullPointerException
+        this.pacientes = new ArrayList<>();
     }
 
     public List<Paciente> getPacientes() {
         if (pacientes == null) {
-            pacientes = new ArrayList<>(); // Inicializar si está en null
+            pacientes = new ArrayList<>();
         }
         return pacientes;
     }
-    
+
     public Long getIdActividades() {
         return idActividades;
     }
@@ -69,9 +69,25 @@ public class Actividades {
         this.tiempo = tiempo;
     }
 
-
     public void setPacientes(List<Paciente> pacientes) {
         this.pacientes = pacientes;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Actividades that = (Actividades) o;
+        return Objects.equals(idActividades, that.idActividades);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idActividades);
     }
 
 }

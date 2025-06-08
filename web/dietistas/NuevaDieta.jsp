@@ -4,12 +4,12 @@
     Author     : Maria
 --%>
 
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <title>Crear Dieta</title>
     <style>
         table {
@@ -53,16 +53,16 @@
             <input type="hidden" name="idPaciente" value="${idPaciente}">
             <thead>
                 <tr>
-                    <th>DÃ­a</th>
+                    <th>Día</th>
                     <th>Desayuno</th>
-                    <th>Media maÃ±ana</th>
+                    <th>Media mañana</th>
                     <th>Comida</th>
                     <th>Merienda</th>
                     <th>Cena</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="dia" items="${['Lunes','Martes','MiÃ©rcoles','Jueves','Viernes','SÃ¡bado','Domingo']}">
+                <c:forEach var="dia" items="${['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo']}">
                     <tr>
                         <td>${dia}</td>
                         <td><textarea name="${dia.toLowerCase()}_desayuno" rows="5" style="border: none; width:100%;" required></textarea></td>

@@ -94,7 +94,7 @@ public class ControladorNuevaDieta extends HttpServlet {
         Dietista dietista = (Dietista) session.getAttribute("dietista");
 
         if (dietista == null) {
-            response.sendRedirect("login.jsp"); // O muestra error de autenticación
+            response.sendRedirect("login.jsp"); 
             return;
         }
 

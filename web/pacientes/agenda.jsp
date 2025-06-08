@@ -3,12 +3,11 @@
     Created on : 19 abr 2025, 17:27:09
     Author     : Maria
 --%>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <div class="container mt-3">
-    <h3 class="mb-3 text-success">🗓️ Mi Agenda</h3>
-    <%-- Mensaje de éxito o error --%>
+    <h3 class="mb-3 text-success"> Mi Agenda</h3>
 <c:if test="${not empty mensaje}">
     <div class="alert alert-info">${mensaje}</div>
 </c:if>

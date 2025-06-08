@@ -3,7 +3,7 @@
     Created on : 16 abr 2025, 19:44:03
     Author     : Maria
 --%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -32,8 +32,8 @@
             <h1 class="titulo-contacto">Contacto</h1>
 
             <div class="fila-contacto">
-                <img src="imagenes/telefono.jpg" alt="TelÃ©fono" />
-                <h2>TelÃ©fono de contacto: 954 160 861</h2>
+                <img src="imagenes/telefono.jpg" alt="Teléfono" />
+                <h2>Teléfono de contacto: 954 160 861</h2>
             </div>
             <div class="fila-contacto">
                 <img src="imagenes/email.png" alt="Email" />

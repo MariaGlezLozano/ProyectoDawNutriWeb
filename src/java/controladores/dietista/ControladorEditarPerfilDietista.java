@@ -1,29 +1,27 @@
 /*
- * Controlador lista de mensajes
+ * ControladorEditarPerfilDietista
  */
 package controladores.dietista;
 
-import entidades.Mensaje;
+import entidades.Dietista;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.persistence.EntityManager;
+import java.time.format.DateTimeFormatter;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import servicios.ServicioDietista;
 
 /**
  *
  * @author Maria
  */
-@WebServlet(name = "ControladorListaMensajes", urlPatterns = {"/ControladorListaMensajes"})
-public class ControladorListaMensajes extends HttpServlet {
+@WebServlet(name = "ControladorEditarPerfilDietista", urlPatterns = {"/dietista/ControladorEditarPerfilDietista"})
+public class ControladorEditarPerfilDietista extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +34,7 @@ public class ControladorListaMensajes extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,31 +50,6 @@ public class ControladorListaMensajes extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-      EntityManagerFactory emf = Persistence.createEntityManagerFactory("NutriWebBackendPU");
-         EntityManager em = emf.createEntityManager();
-         
-          HttpSession session = request.getSession(false);
-        if (session == null || session.getAttribute("userId") == null) {
-            response.sendRedirect("login.jsp");
-            return;
-        }
-
-        int userId = (int) session.getAttribute("userId");
-       
-        List<Mensaje> mensajes;
-        try {
-            TypedQuery<Mensaje> q = em.createQuery(
-                "SELECT m FROM Mensaje m WHERE m.receiverId = :uid ORDER BY m.sentAt DESC",
-                Mensaje.class);
-            q.setParameter("uid", userId);
-            mensajes = q.getResultList();
-        } finally {
-            em.close();
-        }
-
-        request.setAttribute("mensajes", mensajes);
-        request.getRequestDispatcher("bandeja.jsp").forward(request, response);
-    
     }
 
     /**
@@ -90,7 +63,48 @@ public class ControladorListaMensajes extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       /*
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+*/
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("NutriWebBackendPU");
+        ServicioDietista servicioDietista = new ServicioDietista(emf);
+
+        String error = "";
+        String idStr = request.getParameter("id");
+        String nombre = request.getParameter("nombre");
+        String email = request.getParameter("email");
+        String direccion = request.getParameter("direccion");
+
+        try {
+            Long id = Long.parseLong(idStr);
+            Dietista dietista = servicioDietista.findById(id);
+
+            if (dietista == null) {
+                response.sendRedirect("ControladorPrincipal");
+                return;
+            }
+            if (request.getParameter("editar") != null) {
+                dietista.setNombre(nombre);
+                dietista.setDireccion(direccion);
+                dietista.setEmail(email);
+
+                servicioDietista.edit(dietista);
+                request.getSession().setAttribute("dietista", dietista);
+                response.sendRedirect(request.getContextPath() + "/dietistas/InicioSesionDietista.jsp");
+
+            }
+        } catch (Exception e) {
+            error = "Error al actualizar los datos del dietista: " + e.getMessage();
+            e.printStackTrace();
+            request.setAttribute("error", error);
+
+            response.sendRedirect("dietistas/perfil.jsp");
+
+            response.sendRedirect(request.getContextPath() + "/dietistas/InicioSesionDietista.jsp");
+            // getServletContext().getRequestDispatcher("/pacientes/menuPaciente.jsp").forward(request, response);
+        }
     }
 
     /**

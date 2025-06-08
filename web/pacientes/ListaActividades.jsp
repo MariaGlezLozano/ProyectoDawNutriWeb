@@ -3,7 +3,7 @@
     Created on : 18 may 2025, 18:05:49
     Author     : Maria
 --%>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entidades.Actividades" %>
 <!DOCTYPE html>

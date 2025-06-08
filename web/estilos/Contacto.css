@@ -66,3 +66,56 @@ Estilos para página Contacto
   h2 {
     color: green;
   }
+@media (max-width: 768px) {
+  .fila-contacto {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  .fila-contacto img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .fila-contacto h2 {
+    font-size: 1rem;
+  }
+
+  .formulario-contacto {
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .formulario-contacto input,
+  .formulario-contacto textarea,
+  .formulario-contacto button {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+
+  .titulo-contacto {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-contacto {
+    font-size: 1.6rem;
+  }
+
+  .fila-contacto h2 {
+    font-size: 0.95rem;
+  }
+
+  .formulario-contacto {
+    margin: 1rem auto;
+  }
+
+  .formulario-contacto button {
+    font-size: 1rem;
+  }
+}

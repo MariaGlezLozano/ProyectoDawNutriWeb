@@ -1,6 +1,5 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * Controlador bandejaEntrada dietista
  */
 package controladores.dietista;
 
@@ -66,26 +65,26 @@ public class ControladorBandejaDietista extends HttpServlet {
                 throw new ServletException("Sesión no válida. No hay dietista logueado.");
             }
 
-            // 1) Obtenemos mensajes donde receiverId == dietista
+        
             TypedQuery<Mensaje> query = em.createQuery(
                     "SELECT m FROM Mensaje m WHERE m.receiverId = :dietistaId ORDER BY m.sentAt DESC",
                     Mensaje.class);
             query.setParameter("dietistaId", idDietista.intValue());
             List<Mensaje> mensajes = query.getResultList();
 
-            // 2) Construimos mapa de senderId -> nombre del remitente
+     
             Map<Integer, String> remitenteNombres = new HashMap<>();
             for (Mensaje m : mensajes) {
                 int senderId = m.getSenderId();
                 if (!remitenteNombres.containsKey(senderId)) {
-                    // Como Paciente PK es Long, lo buscamos con Long.valueOf(senderId)
+
                     Paciente remitente = em.find(Paciente.class, Long.valueOf(senderId));
                     String nombre = (remitente != null) ? remitente.getNombre() : "Desconocido";
                     remitenteNombres.put(senderId, nombre);
                 }
             }
 
-            // 3) Enviamos al JSP
+ 
             request.setAttribute("mensajes", mensajes);
             request.setAttribute("remitenteNombres", remitenteNombres);
             request.getRequestDispatcher("/dietistas/BandejaMensajesDietista.jsp")
@@ -114,7 +113,7 @@ public class ControladorBandejaDietista extends HttpServlet {
     EntityManager em = emf.createEntityManager();
 
     try {
-        // 1) Parámetros del formulario
+    
         String receiverIdStr = request.getParameter("receiverId");
         String subject = request.getParameter("subject");
         String body = request.getParameter("body");
@@ -128,7 +127,7 @@ public class ControladorBandejaDietista extends HttpServlet {
                 ? Integer.valueOf(replyToStr)
                 : null;
 
-        // 2) Sender = dietista desde sesión
+ 
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("idDietista") == null) {
             response.sendRedirect(request.getContextPath() + "/InicioSesion.jsp");
@@ -137,7 +136,7 @@ public class ControladorBandejaDietista extends HttpServlet {
         Long idDietistaLong = (Long) session.getAttribute("idDietista");
         int senderId = idDietistaLong.intValue();
 
-        // 3) Persistir mensaje
+      
         em.getTransaction().begin();
         Mensaje m = new Mensaje();
         m.setSenderId(senderId);
@@ -149,18 +148,17 @@ public class ControladorBandejaDietista extends HttpServlet {
         em.persist(m);
         em.getTransaction().commit();
 
-        // 4) Cargar mensajes para la bandeja para mostrar en JSP
         TypedQuery<Mensaje> query = em.createQuery(
             "SELECT m FROM Mensaje m WHERE m.receiverId = :dietistaId ORDER BY m.sentAt DESC", Mensaje.class);
         query.setParameter("dietistaId", senderId);
         List<Mensaje> mensajes = query.getResultList();
 
-        // 5) Mapear senderId a nombres (ejemplo con Paciente, si hay más tipos, adaptar)
+ 
         Map<Integer, String> remitenteNombres = new HashMap<>();
         for (Mensaje msg : mensajes) {
             int remitenteId = msg.getSenderId();
             if (!remitenteNombres.containsKey(remitenteId)) {
-                // Buscar nombre del remitente
+            
                 Paciente remitente = em.find(Paciente.class, (long) remitenteId);
                 if (remitente != null) {
                     remitenteNombres.put(remitenteId, remitente.getNombre());
@@ -170,12 +168,11 @@ public class ControladorBandejaDietista extends HttpServlet {
             }
         }
 
-        // 6) Pasar atributos a JSP
         request.setAttribute("mensajes", mensajes);
         request.setAttribute("remitenteNombres", remitenteNombres);
         request.setAttribute("enviado", true); // para mostrar mensaje de éxito
 
-        // 7) Forward a JSP
+        
         request.getRequestDispatcher("/dietistas/BandejaMensajesDietista.jsp").forward(request, response);
 
     } catch (Exception e) {

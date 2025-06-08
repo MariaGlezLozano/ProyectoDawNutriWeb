@@ -5,7 +5,7 @@
 --%>
 <%@page import="java.util.List"%>
 <%@page import="entidades.Dieta"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
     <head>

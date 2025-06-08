@@ -3,14 +3,14 @@
     Created on : 18 may 2025, 18:52:15
     Author     : Maria
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
 
-  <title>GrÃ¡fica de EvoluciÃ³n del Peso</title>
+  <title>Gráfica de Evolución del Peso</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     #graficoPeso {
@@ -41,7 +41,7 @@
 </head>
 <body>
      <jsp:include page="cabeceraPaciente.jsp" /> 
-     <h2>EvoluciÃ³n del Peso</h2>
+     <h2>Evolución del Peso</h2>
 
   <canvas id="graficoPeso"></canvas>
 
@@ -88,6 +88,6 @@
       }
     });
   </script>
-    <a href="../pacientes/menuPaciente.jsp" class="btn">Volver al menÃº</a>
+    <a href="../pacientes/menuPaciente.jsp" class="btn">Volver al menú</a>
 </body>
 </html>

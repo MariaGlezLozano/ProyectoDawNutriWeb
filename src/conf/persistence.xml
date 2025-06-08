@@ -4,7 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.01:3306/nutriweb?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+     <property name="javax.persistence.jdbc.url" 
+          value="jdbc:mysql://127.0.0.1:3306/nutriweb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="nutriweb"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="practicas+25"/>

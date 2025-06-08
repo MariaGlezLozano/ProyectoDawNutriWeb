@@ -1,6 +1,5 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * ControladorEnviarMensaje
  */
 package controladores;
 
@@ -64,10 +63,15 @@ public class ControladorEnviarMensaje extends HttpServlet {
 
         Paciente paciente = em.find(Paciente.class, idPaciente);
         Dietista dietista = paciente.getDietista();
-
         em.close();
+        if (dietista == null) {
+            response.sendRedirect(request.getContextPath() + "/paciente/ControladorMensajesPaciente?idPaciente=" + idPacienteStrg + "&error=SinDietista");
+            return;
+        }
+
         request.setAttribute("dietistaId", dietista.getidDietista());
         request.setAttribute("nombreDietista", dietista.getNombre());
+
         request.getRequestDispatcher("/pacientes/NuevoMensaje.jsp").forward(request, response);
 
     }
@@ -88,26 +92,25 @@ public class ControladorEnviarMensaje extends HttpServlet {
         EntityManager em = emf.createEntityManager();
 
         try {
-            // Obtener parámetros
+
             String idPacienteStr = request.getParameter("idPaciente");
             String receiverIdStr = request.getParameter("receiverId");
             String subject = request.getParameter("subject");
             String body = request.getParameter("body");
-           // String replyToStr = request.getParameter("replyToId");
-            System.out.println("datos: " + idPacienteStr + receiverIdStr + subject + body);
+            // String replyToStr = request.getParameter("replyToId");
 
-            if (receiverIdStr == null || subject == null || body == null
-                    || receiverIdStr.isEmpty() || subject.isEmpty() || body.isEmpty()) {
-                throw new ServletException("Faltan parámetros obligatorios.");
+            if (receiverIdStr == null || subject == null || body == null || receiverIdStr.isEmpty() || subject.isEmpty() || body.isEmpty()) {
+                response.sendRedirect(request.getContextPath() + "/paciente/ControladorMensajesPaciente?idPaciente=" + idPacienteStr + "&error=FaltanParametros");
+                return;
             }
 
             Long idPaciente = Long.valueOf(idPacienteStr);
             Integer receiverId = Integer.valueOf(receiverIdStr);
-           
 
             Paciente paciente = em.find(Paciente.class, idPaciente);
             if (paciente == null) {
-                throw new ServletException("Paciente no encontrado.");
+                response.sendRedirect(request.getContextPath() + "/paciente/ControladorMensajesPaciente?idPaciente=" + idPacienteStr + "&error=PacienteNoEncontrado");
+                return;
             }
 
             // Iniciar transacción y guardar mensaje
@@ -125,8 +128,9 @@ public class ControladorEnviarMensaje extends HttpServlet {
             em.getTransaction().commit();
 
             // Redirigir con confirmación
-            response.sendRedirect(request.getContextPath() + "/pacientes/BandejaMensajes.jsp?enviado=1");
+            response.sendRedirect(request.getContextPath() + "/paciente/ControladorMensajesPaciente?idPaciente=" + idPaciente);
 
+            //response.sendRedirect(request.getContextPath() + "/pacientes/BandejaMensajes.jsp?enviado=1");
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();

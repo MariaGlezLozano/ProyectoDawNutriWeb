@@ -5,7 +5,8 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -31,7 +32,7 @@
                             <th>Nombre</th>
                             <th>Apellidos</th>
                             <th>Email</th>
-                            <th>DirecciÃ³n</th>
+                            <th>Dirección</th>
                             <th>Fecha Nacimiento</th>
                             <th>Peso</th>
                             <th>Altura</th>
@@ -47,7 +48,7 @@
                                 <td>${paciente.altura}</td>
                                 <td>${paciente.peso}</td> 
                                 <td>
-                                    <a href="ControladorNuevoPaciente?id=${paciente.idPaciente}" class="btn">Registrar nueva Consulta</a>
+                                    <a href="ControladorNuevaConsulta?id=${paciente.idPaciente}" class="btn">Registrar nueva Consulta</a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -62,7 +63,7 @@
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
                                 <th>Email</th>
-                                <th>DirecciÃ³n</th>
+                                <th>Dirección</th>
                                 <th>Fecha Nacimiento</th>
                                 <th>Acciones</th>
                             </tr>

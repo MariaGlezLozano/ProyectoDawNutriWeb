@@ -1,6 +1,5 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * Controlador Actividades del paciente
  */
 package controladores.paciente;
 
@@ -134,12 +133,16 @@ public class ControladorActividadesPaciente extends HttpServlet {
             actividad = actividadExistente.get(0);
         }
 
-        // Asociar la actividad al paciente
+        if(!paciente.getActividades().contains(actividad)){
+             // Asociar la actividad al paciente
         paciente.getActividades().add(actividad);
-        if (actividad.getPacientes() == null) {
+         if (actividad.getPacientes() == null) {
             actividad.setPacientes(new ArrayList<>()); // Inicializamos la lista
         }
         actividad.getPacientes().add(paciente);
+        }
+       
+       
 
         em.merge(paciente); // Guardamos la relación en la base de datos
         em.getTransaction().commit();

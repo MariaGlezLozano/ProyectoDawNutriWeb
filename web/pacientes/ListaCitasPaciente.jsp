@@ -3,7 +3,7 @@
     Created on : 24 may 2025, 19:26:23
     Author     : Maria
 --%>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
@@ -71,7 +71,7 @@
         </tbody>
     </table>
     <form action="${pageContext.request.contextPath}/paciente/ControladorPrincipalPaciente" method="get">
-        <button type="submit" class="btn">Volver al MenÃº</button>
+        <button type="submit" class="btn">Volver al Menú</button>
     </form>
 </body>
 </html>

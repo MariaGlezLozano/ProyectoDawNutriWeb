@@ -4,10 +4,10 @@
     Author     : Maria
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
     <header class="header">
-    <title>MenÃº Paciente</title>
+    <title>Menú Paciente</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../estilos/cabeceraPaciente.css">
         <div class="logo">
@@ -23,7 +23,7 @@
         <div class="profile-menu">
             <img src="../imagenes/corazon-saludable.png" alt="Foto de perfil" class="profile-pic">
             <div class="dropdown-content">
-                <a href="${pageContext.request.contextPath}/ControladorCerrarSesion">Cerrar sesiÃ³n</a>
+                <a href="${pageContext.request.contextPath}/ControladorCerrarSesion">Cerrar sesión</a>
             </div>
         </div>
     </header>

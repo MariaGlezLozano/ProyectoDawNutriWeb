@@ -4,7 +4,7 @@
     Author     : Maria
 --%>
 
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -102,12 +102,12 @@
                 <br>
                 <label for="ingredientes">Ingredientes:</label>
                 <textarea name="ingredientes" rows="5" style="width:100%;" required></textarea>
-                <label>PreparaciÃ³n:</label>
+                <label>Preparación:</label>
                 <textarea name="preparacion" rows="5" style="width:100%;" required></textarea>
 
                 <label for="notas">Notas adicionales:</label><br>
                 <textarea name="notas" id="notas" rows="4" style="width: 100%;"></textarea>
-                <input type="submit" class="submit-btn" value="Guardar Dieta">
+                <input type="submit" class="submit-btn" value="Guardar Receta">
                 <button class="btn" onclick="window.print()">Imprimir en PDF</button>
             </form>
                 <a href="${pageContext.request.contextPath}/dietista/ControladorInicioDietista" class="submit-btn"><i class="fas fa-user-plus"></i>Volver</a>

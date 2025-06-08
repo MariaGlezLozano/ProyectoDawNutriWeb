@@ -3,7 +3,7 @@
     Created on : 17 may 2025, 18:34:15
     Author     : Maria
 --%>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.*, java.util.regex.*" %>
 <!DOCTYPE html>
@@ -53,14 +53,14 @@
             Map<String, Map<String, String>> datosDias = new LinkedHashMap<>();
             String notas = "";
 
-            List<String> diasOrdenados = Arrays.asList("lunes", "martes", "mi√©rcoles", "jueves", "viernes", "s√°bado", "domingo");
+            List<String> diasOrdenados = Arrays.asList("lunes", "martes", "miÈrcoles", "jueves", "viernes", "s·bado", "domingo");
             for (String dia : diasOrdenados) {
                 datosDias.put(dia, new HashMap<>());
             }
 
             if (descripcion != null && !descripcion.isEmpty()) {
                 for (String dia : diasOrdenados) {
-                    Pattern bloqueDia = Pattern.compile("(?i)" + dia + ":\\s*([\\s\\S]*?)(?=\\n(?:lunes|martes|mi√©rcoles|jueves|viernes|s√°bado|domingo):|\\nNotas adicionales:|$)", Pattern.CASE_INSENSITIVE);
+                    Pattern bloqueDia = Pattern.compile("(?i)" + dia + ":\\s*([\\s\\S]*?)(?=\\n(?:lunes|martes|miÈrcoles|jueves|viernes|s·bado|domingo):|\\nNotas adicionales:|$)", Pattern.CASE_INSENSITIVE);
                     Matcher bloqueMatcher = bloqueDia.matcher(descripcion);
 
                     if (bloqueMatcher.find()) {
@@ -98,9 +98,9 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>D√≠a</th>
+                            <th>DÌa</th>
                             <th>Desayuno</th>
-                            <th>Media ma√±ana</th>
+                            <th>Media maÒana</th>
                             <th>Comida</th>
                             <th>Merienda</th>
                             <th>Cena</th>
@@ -114,7 +114,7 @@
                         <tr>
                             <td><%= dia%></td>
                             <td><textarea name="<%= dia%>_desayuno" rows="5" required><%= comidas.getOrDefault("desayuno", "").replace("\n", "&#10;")%></textarea></td>
-                            <td><textarea name="<%= dia%>_almuerzo" rows="5" required><%= comidas.getOrDefault("media ma√±ana", "")%></textarea></td>
+                            <td><textarea name="<%= dia%>_almuerzo" rows="5" required><%= comidas.getOrDefault("media maÒana", "")%></textarea></td>
                             <td><textarea name="<%= dia%>_comida" rows="5" required><%= comidas.getOrDefault("comida", "")%></textarea></td>
                             <td><textarea name="<%= dia%>_merienda" rows="5" required><%= comidas.getOrDefault("merienda", "")%></textarea></td>
                             <td><textarea name="<%= dia%>_cena" rows="5" required><%= comidas.getOrDefault("cena", "")%></textarea></td>

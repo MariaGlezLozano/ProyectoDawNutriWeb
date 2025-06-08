@@ -1,9 +1,12 @@
 /*
-Estilos
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
 /* 
-    Created on : 14 may 2025, 18:05:58
+    Created on : 7 jun 2025, 20:12:14
     Author     : Maria
 */
+
 body {
     margin: 0;
     padding: 0;
@@ -42,7 +45,7 @@ th {
 }
 
 td {
-    white-space: pre-line;
+    white-space: pre-line; /* para que respete saltos de línea */
 }
 
 tr:nth-child(even) {
@@ -104,5 +107,3 @@ tr:nth-child(even) {
 .tabla-descripcion tr:nth-child(even) {
     background-color: #f9f9f9;
 }
-
-

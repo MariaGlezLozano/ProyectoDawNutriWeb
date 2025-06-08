@@ -3,20 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/src/java/controladores/dietista/ControladorPacientes.java</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/web/pacientes/agenda.jsp</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/src/java/entidades/Cita.java</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/src/java/controladores/ControladorNuevaCita.java</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/web/dietistas/NuevaConsulta.jsp</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/web/pacientes/ListaCitasPaciente.jsp</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/web/pacientes/NuevoMensaje.jsp</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/src/java/controladores/dietista/ControladorNuevaConsulta.java</file>
+            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/web/dietistas/InicioSesionDietista.jsp</file>
             <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/web/pacientes/menuPaciente.jsp</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/web/dietistas/Pacientes.jsp</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/web/pacientes/BandejaMensajes.jsp</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/src/java/controladores/dietista/ControladorBandejaDietista.java</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/web/dietistas/BandejaMensajesDietista.jsp</file>
-            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/src/java/servicios/ServicioCita.java</file>
+            <file>file:/C:/Users/Maria/Desktop/ProyectoDAW/NutriWebBackend/web/pacientes/agenda.jsp</file>
         </group>
     </open-files>
 </project-private>

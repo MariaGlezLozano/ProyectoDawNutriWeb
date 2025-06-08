@@ -5,7 +5,7 @@
 --%>
 <%@page import="java.util.List"%>
 <%@page import="entidades.Receta"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +28,7 @@
                 <tr>
                     <td><%= receta.getNombre()%></td>
                     <td>
-                      <a href="ControladorEditarDieta?id=<%= receta.getIdReceta() %>" class="btn">Editar receta</a>
+                      <a href="ControladorEditarReceta?id=<%= receta.getIdReceta() %>" class="btn">Editar receta</a>
                     </td>
                 </tr>
                 <%
@@ -41,7 +41,7 @@
                 <% }%>
             </table>
             <div class="botones">
-                <a href="../dietistas/InicioSesionDietista.jsp" class="btn">Volver al menÃº</a>
+                <a href="../dietistas/InicioSesionDietista.jsp" class="btn">Volver al menú</a>
             </div>
         </div>
     </body>

@@ -5,7 +5,7 @@
 --%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -42,10 +42,10 @@
     </head>
     <body class="bg-light">
         <div class="container mt-5">
-            <h1 class="mb-4">MenÃº de AdministraciÃ³n</h1>
+            <h1 class="mb-4">Menú de Administración</h1>
 
-            <!-- GestiÃ³n de Dietistas -->
-            <h2 class="mt-4">GestiÃ³n de Dietistas</h2>
+            <!-- Gestión de Dietistas -->
+            <h2 class="mt-4">Gestión de Dietistas</h2>
             <div id="gestionDietistas" class="contenido mt-3">
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered text-center">
@@ -73,8 +73,8 @@
                 </div>
             </div>
 
-            <!-- GestiÃ³n de Pacientes -->
-            <h2 class="mt-4">GestiÃ³n de Pacientes</h2>
+            <!-- Gestión de Pacientes -->
+            <h2 class="mt-4">Gestión de Pacientes</h2>
             <div id="gestionPacientes" class="contenido mt-3">
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered text-center">

@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Maria
  */
-@WebServlet(name = "ControladorListaMensajes", urlPatterns = {"/paciente/ControladorListaMensajes"})
-public class ControladorListaMensajes extends HttpServlet {
+@WebServlet(name = "ControladorMensajesPaciente", urlPatterns = {"/paciente/ControladorMensajesPaciente"})
+public class ControladorMensajesPaciente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +36,7 @@ public class ControladorListaMensajes extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,6 +51,7 @@ public class ControladorListaMensajes extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
         String idPacienteStr = request.getParameter("idPaciente");
         if (idPacienteStr == null) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Falta parámetro idPaciente");

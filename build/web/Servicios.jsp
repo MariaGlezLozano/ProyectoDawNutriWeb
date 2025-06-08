@@ -4,7 +4,7 @@
     Author     : Maria
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,22 +31,22 @@
                     <img src="imagenes/evolucionPeso.png" alt="Imagen 2" />
                 </div>
                 <div class="textos">
-                    <h1>VisualizaciÃ³n de evoluciÃ³n de tu peso</h1>
-                    <p>Â¿Quieres ver una grÃ¡fica con la evoluciÃ³n de tu peso? En nuestra Web es posible.</p>
+                    <h1>Visualización de evolución de tu peso</h1>
+                    <p>¿Quieres ver una gráfica con la evolución de tu peso? En nuestra Web es posible.</p>
                 </div>
                 <div class="imagenes">
                     <img src="imagenes/chat.PNG" alt="Imagen 3" />
                 </div>
                 <div class="textos">
                     <h1>Chat con tu Dietista</h1>
-                    <p>PodrÃ¡s pregunarle tus dudas directamente.</p>
+                    <p>Podrás pregunarle tus dudas directamente.</p>
                 </div>
                 <div class="imagenes">
                     <img src="imagenes/agenda.png" alt="Imagen 4" />
                 </div>
                 <div class="textos">
                     <h1>Agenda</h1>
-                    <p>PodrÃ¡s coger una cita directamente, sin tener que llamar por telÃ©fono.</p>
+                    <p>Podrás coger una cita directamente, sin tener que llamar por teléfono.</p>
                 </div>
             </div>
         </section>

@@ -5,11 +5,11 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="ISO-8859-1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registrar Nueva Consulta</title>
         <link rel="stylesheet" href="../estilos/NuevaConsulta.css">
@@ -21,7 +21,7 @@
 
             <!-- Formulario para registrar la nueva consulta -->
             <form action="ControladorNuevaConsulta" method="post">
-                <!-- InformaciÃ³n bÃ¡sica del paciente -->
+                <!-- Información básica del paciente -->
                 <input type="hidden" name="idPaciente" value="${paciente.idPaciente}" />
                 <input type="hidden" name="idDietista" value="${dietista.idDietista}" />
 
@@ -53,14 +53,9 @@
                         <option value="${receta.idReceta}">${receta.nombre}</option>
                     </c:forEach>
                 </select><br><br>
-
-                <h3>Asignar Cita</h3>
-                <label for="cita">Cita:</label>
-                <a href="../ControladorNuevaCita?idPaciente=${paciente.idPaciente}&idDietista=${dietista.idDietista}" class="btn">Pedir nueva cita</a><br><br>
-
-                <!-- Enviar el formulario -->
+              <!-- Enviar el formulario -->
                 <button type="submit">Guardar Consulta</button>
-                <a href="${pageContext.request.contextPath}/dietistas/Pacientes.jsp" class="btn"><i class="fas fa-user-plus"></i>Volver</a>
+                <a href="${pageContext.request.contextPath}/dietista/ControladorPacientes?idDietista=${dietista.idDietista}" class="btn"><i class="fas fa-user-plus"></i>Ver Pacientes</a>
             </form>
 
             <a href="${pageContext.request.contextPath}/dietistas/NuevaDieta.jsp" class="btn"><i class="fas fa-user-plus"></i> Registrar Dieta</a>

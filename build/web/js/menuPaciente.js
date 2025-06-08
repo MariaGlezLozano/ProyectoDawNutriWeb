@@ -25,7 +25,9 @@ function cargarContenido(url) {
                     cargarScript("../js/perfil.js");
                 }
 
-                
+                if (url.includes("CalculadoraIMC.jsp")) {
+                    cargarScript("../js/calculadora.js");
+                }
 
             })
             .catch(err => console.error("Error cargando contenido:", err));

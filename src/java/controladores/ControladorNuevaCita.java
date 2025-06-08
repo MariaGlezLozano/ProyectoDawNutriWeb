@@ -150,56 +150,6 @@ public class ControladorNuevaCita extends HttpServlet {
         }
     }
 
-    /*
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("NutriWebBackendPU");
-        EntityManager em = emf.createEntityManager();
-
-        ServicioCita servicioCita = new ServicioCita(em);
-
-        String fecha = request.getParameter("fecha");
-        String hora = request.getParameter("hora");   
-        String idDietista = request.getParameter("id_dietista");
-        String idPaciente = request.getParameter("id_paciente");
-
- 
-        try {
-            LocalDateTime fechaHora = LocalDateTime.parse(fecha + "T" + hora);
-
-            boolean disponibilidad = servicioCita.verificarDisponibilidad(fechaHora, Long.parseLong(idDietista));
-
-            if (!disponibilidad) {
-                request.setAttribute("mensaje", "La fecha y hora seleccionadas no están disponibles.");
-                request.getRequestDispatcher("/agenda.jsp").forward(request, response);
-                return;
-            }
-
-            if (disponibilidad && !servicioCita.pacienteTieneCitaActiva(Long.parseLong(idPaciente))) {
-
-                servicioCita.asignarCita(fechaHora, Long.parseLong(idDietista), Long.parseLong(idPaciente));
-
-                request.setAttribute("mensaje", "Cita asignada correctamente.");
-            } else {
-                request.setAttribute("mensaje", "La fecha y hora seleccionadas no están disponibles o el paciente ya tiene una cita activa.");
-            }
-
-            List<Cita> citas = servicioCita.obtenerCitasPaciente(Long.parseLong(idPaciente));
-            List<Cita> citasPaciente = servicioCita.obtenerCitasPaciente(Long.parseLong(idPaciente));
-            request.setAttribute("citasPaciente", citasPaciente); 
-
-            request.getRequestDispatcher("/agenda.jsp").forward(request, response);
-
-        } catch (Exception e) {
-            request.setAttribute("mensaje", "Error inesperado: " + e.getMessage());
-            request.getRequestDispatcher("/agenda.jsp").forward(request, response);
-        } finally {
-            em.close();  
-            emf.close();
-        }
-    }
-     */
     /**
      * Returns a short description of the servlet.
      *

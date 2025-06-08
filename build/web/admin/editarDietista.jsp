@@ -4,7 +4,7 @@
     Author     : Maria
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -33,7 +33,7 @@
                             <div class="mb-3">
                                 <label for="activo" class="form-label fw-bold">Activo</label>
                                 <select name="activo" id="activo" class="form-select">
-                                    <option value="true" ${activo ? "selected" : ""}>SÃ­</option>
+                                    <option value="true" ${activo ? "selected" : ""}>Sí</option>
                                     <option value="false" ${!activo ? "selected" : ""}>No</option>
                                 </select>
                             </div>
@@ -55,7 +55,7 @@
 
         <script>
             function confirmarEliminacion() {
-                return confirm("Â¿EstÃ¡s seguro de que deseas eliminar el usuario?");
+                return confirm("¿Estás seguro de que deseas eliminar el usuario?");
             }
         </script>
 

@@ -5,7 +5,7 @@
 --%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,14 +21,20 @@
         <section class="registro box">
             <h1>Registro Paciente</h1>
             <div class="registro-formularios">
-            <form action="ControladorRegistro" method="post">
+                <form id="formPaciente" action="ControladorRegistro" method="post" novalidate>
                 <input type="hidden" name="tipo" value="paciente"/>
                 <input type="text" name="nombre" placeholder="Nombre" required />
+                <div class="error-message" id="errorNombrePaciente"></div>
                 <input type="text" name="apellidos" placeholder="Apellidos" required />
+                <div class="error-message" id="errorApellidosPaciente"></div>
                 <input type="date" name="fechaNacimiento" placeholder="Fecha de nacimiento" required />
+                <div class="error-message" id="errorFechaNacimientoPaciente"></div>
                 <input type="email" name="email" placeholder="Correo electrónico" required />
+                <div class="error-message" id="errorEmailPaciente"></div>
                 <input type="password" name="password" placeholder="Contraseña" required />
+                <div class="error-message" id="errorPassPaciente"></div>
                 <input type="password" name="repetirPassword" placeholder="Repetir contraseña" required />
+                 <div class="error-message" id="errorRepetirPassPaciente"></div>
                 <button type="submit" name="registrarse">Registrarse</button>
             </form>
             </div>
@@ -37,12 +43,16 @@
              <section class="registro box">
             <h1>Registro Empresa</h1>   
             <div class="registro-formularios">
-            <form action="ControladorRegistro" method="post">
+                <form id="formEmpresa" action="ControladorRegistro" method="post" novalidate>
                 <input type="hidden" name="tipo" value="empresa"/>
                 <input type="text" name="nombre" placeholder="Nombre Empresa" required />
+                <div class="error-message" id="errorNombreEmpresa"></div>
                 <input type="text" name="nif" placeholder="NIF" required />
+                <div class="error-message" id="errorNIFEmpresa"></div>
                 <input type="text" name="direccion" placeholder="Dirección" required />
+                <div class="error-message" id="errorDireccionEmpresa"></div>
                 <input type="text" name="profesional" placeholder="Nombre del Dietista" required />
+                <div class="error-message" id="errorProfesionalEmpresa"></div>
                 <input type="email" name="email" placeholder="Correo electrónico" required />
                 <input type="password" name="password" placeholder="Contraseña" required />
                 <input type="password" name="repetirPassword" placeholder="Repetir contraseña" required />
@@ -54,6 +64,8 @@
                 <div class="error">${error}</div>
             </c:if>
         </section>
+               <jsp:include page="Footer.jsp" /> 
+            <script src="${pageContext.request.contextPath}/js/validacion.js"></script>
     </body>
-    <jsp:include page="Footer.jsp" />
+
 </html>

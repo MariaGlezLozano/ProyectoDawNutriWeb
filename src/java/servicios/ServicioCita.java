@@ -36,13 +36,16 @@ public class ServicioCita {
         return query.getSingleResult() == 0L;
     }
 
-    public boolean pacienteTieneCitaActiva(Long idPaciente) {
-        TypedQuery<Long> query = em.createQuery(
-                "SELECT COUNT(c) FROM Cita c WHERE c.paciente.idPaciente = :idPaciente AND c.estado = :estado", Long.class);
-        query.setParameter("idPaciente", idPaciente);
-        query.setParameter("estado", EstadoCita.ACTIVA);
-        return query.getSingleResult() > 0;
-    }
+   public boolean pacienteTieneCitaActiva(Long idPaciente) {
+    LocalDateTime ahora = LocalDateTime.now();
+    TypedQuery<Long> query = em.createQuery(
+        "SELECT COUNT(c) FROM Cita c WHERE c.paciente.idPaciente = :idPaciente AND c.estado = :estado AND c.fechaHora > :ahora", Long.class);
+    query.setParameter("idPaciente", idPaciente);
+    query.setParameter("estado", EstadoCita.ACTIVA);
+    query.setParameter("ahora", ahora);
+    return query.getSingleResult() > 0;
+}
+
 
     public List<Cita> obtenerCitasPaciente(Long idPaciente) {
         TypedQuery<Cita> query = em.createQuery(

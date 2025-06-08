@@ -5,7 +5,7 @@
 --%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,17 +15,21 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
         <link rel="stylesheet" href="estilos/Registro.css"> 
         <title>Inicio Sesión</title>
+
     </head>
     <body>
         <jsp:include page="cabecera.jsp" />
         <section class="registro box">
             <h1>Inicio de Sesión Paciente</h1>
             <div class="registro-formularios">
-                <form action="ControladorInicioSesion" method="post">
+                <form id="formPaciente" action="ControladorInicioSesion" method="post" novalidate>
                     <input type="hidden" name="tipo" value="paciente"/>               
                     <input type="email" name="email" placeholder="Correo electrónico" required />
+                    <div class="error-message" id="errorEmailPaciente"></div>
                     <input type="password" name="password" placeholder="Contraseña" required />
+                    <div class="error-message" id="errorPassPaciente"></div>
                     <input type="password" name="repetirPassword" placeholder="Repetir contraseña" required />
+                    <div class="error-message" id="errorRepetirPassPaciente"></div>
                     <button type="submit" name="iniciar">Iniciar Sesión</button>
                 </form>
             </div>
@@ -34,12 +38,15 @@
         <section class="registro box">
             <h1>Inicio de Sesión Empresa</h1>
             <div class="registro-formularios">
-                <form action="ControladorInicioSesion" method="post">
+                <form id="formEmpresa" action="ControladorInicioSesion" method="post" novalidate>
                     <input type="hidden" name="tipo" value="empresa"/>            
                     <input type="hidden" name="activo" value="inactivo"/>
                     <input type="email" name="email" placeholder="Correo electrónico" required />
+                    <div class="error-message" id="errorEmailEmpresa"></div>
                     <input type="password" name="password" placeholder="Contraseña" required />
+                    <div class="error-message" id="errorPassEmpresa"></div>
                     <input type="password" name="repetirPassword" placeholder="Repetir contraseña" required />
+                    <div class="error-message" id="errorRepetirPassEmpresa"></div>
                     <button type="submit" name="iniciar">Iniciar Sesión</button>
                 </form>
             </div>
@@ -47,6 +54,8 @@
         <c:if test="${not empty error}">
             <div class="error">${error}</div>
         </c:if>
+
+        <jsp:include page="Footer.jsp" />
+     <script src="${pageContext.request.contextPath}/js/validacion.js"></script>
     </body>
-    <jsp:include page="Footer.jsp" />
 </html>

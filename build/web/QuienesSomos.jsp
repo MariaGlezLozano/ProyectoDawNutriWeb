@@ -4,7 +4,7 @@
     Author     : Maria
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,11 +24,11 @@
                     <img src="imagenes/dieta-saludable.png" alt="Imagen 1" />
                 </div>
                 <div class="texto">
-                    <h1>Somos una empresa dedicada a la nutriciÃ³n.</h1>
+                    <h1>Somos una empresa dedicada a la nutrición.</h1>
                     <p>
-                        Brindamos asesoramiento personalizado y herramientas para mejorar tu salud y bienestar a travÃ©s de una alimentaciÃ³n equilibrada. 
-                        PodrÃ¡s contactar con tu Nutricionista de confianza a travÃ©s de nuestra plataforma, pedir cita, visualizar tu lista de la compra,
-                        tu evoluciÃ³n de peso y muchas funcionalidades mÃ¡s.
+                        Brindamos asesoramiento personalizado y herramientas para mejorar tu salud y bienestar a través de una alimentación equilibrada. 
+                        Podrás contactar con tu Nutricionista de confianza a través de nuestra plataforma, pedir cita, visualizar tu lista de la compra,
+                        tu evolución de peso y muchas funcionalidades más.
                     </p>
                 </div>
             </div>

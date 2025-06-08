@@ -8,8 +8,7 @@ Estilos de página de Registro
 
 
 
-.registro {
-    
+.registro {  
     max-width: 500px;
     margin: 2rem auto;
     padding: 2rem;
@@ -58,4 +57,11 @@ Estilos de página de Registro
   .registro button:hover {
     background-color: #45a049;
   }
+  .error-message {
+    color: #d93025; /* rojo suave */
+    font-size: 0.85em;
+    margin-top: 3px;
+    height: 16px; /* para evitar que el contenido "salte" cuando aparece el mensaje */
+}
+
  

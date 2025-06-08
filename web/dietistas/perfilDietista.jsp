@@ -3,7 +3,7 @@
     Created on : 17 may 2025, 19:46:26
     Author     : Maria
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
@@ -21,23 +21,20 @@
 
     <!-- Formulario de edición oculto inicialmente -->
     <div id="perfilEditar" style="display: none;">
-        <form method="post" action="ControladorEditarPerfil">
-            <input type="hidden" name="id" value="${paciente.idPaciente}" />
+        <form method="post" action="ControladorEditarPerfilDietista">
+            <input type="hidden" name="id" value="${dietista.idDietista}" />
             <div class="mb-2">
                 <label>Nombre:</label>
-                <input type="text" name="nombre" class="form-control" value="${paciente.nombre}" required />
+                <input type="text" name="nombre" class="form-control" value="${dietista.nombre}" required />
             </div>
             <div class="mb-2">
-                <label>Apellidos:</label>
-                <input type="text" name="apellidos" class="form-control" value="${paciente.apellidos}" required />
+                <label>Dirección:</label>
+                <input type="text" name="direccion" class="form-control" value="${dietista.direccion}" required />
             </div>
-            <div class="mb-2">
-                <label>Fecha de Nacimiento:</label>
-                <input type="date" name="fechaNacimiento" class="form-control" value="${paciente.fechaNacimiento}" required />
-            </div>
+            
             <div class="mb-2">
                 <label>Email:</label>
-                <input type="email" name="email" class="form-control" value="${paciente.email}" required />
+                <input type="email" name="email" class="form-control" value="${dietista.email}" required />
             </div>
             <button type="submit" name="editar" class="btn btn-success btn-sm">Guardar</button>
             <button type="button" class="btn btn-secondary btn-sm" onclick="cancelarEdicion()">Cancelar</button>

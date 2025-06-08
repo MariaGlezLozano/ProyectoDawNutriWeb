@@ -3,7 +3,7 @@
     Created on : 19 abr 2025, 17:22:39
     Author     : Maria
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
         <button class="btn btn-success btn-sm" onclick="mostrarFormulario()">Editar</button>    
     </div>
 
-    <!-- Formulario de ediciÃ³n oculto inicialmente -->
+    <!-- Formulario de edición oculto inicialmente -->
     <div id="perfilEditar" style="display: none;">
         <form method="post" action="ControladorEditarPerfil">
             <input type="hidden" name="id" value="${paciente.idPaciente}" />
